@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CircleClick : MonoBehaviour
 {
+    public int id;
+
     void Start()
     {
         

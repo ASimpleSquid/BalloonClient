@@ -13,7 +13,7 @@ public class GameLogic : MonoBehaviour
     }
     void Update()
     {
-        durationUntilNextBalloon -= Time.deltaTime;
+       /* durationUntilNextBalloon -= Time.deltaTime;
 
         if(durationUntilNextBalloon < 0)
         {
@@ -23,9 +23,9 @@ public class GameLogic : MonoBehaviour
             float screenPositionYPercent = Random.Range(0.0f, 1.0f);
             Vector2 screenPosition = new Vector2(screenPositionXPercent * (float)Screen.width, screenPositionYPercent * (float)Screen.height);
             SpawnNewBalloon(screenPosition);
-        }
+        }*/
     }
-    public void SpawnNewBalloon(Vector2 screenPosition)
+    public void SpawnNewBalloon(Vector2 screenPosition, int id)
     {
         if(circleTexture == null)
             circleTexture = Resources.Load<Sprite>("Circle");
@@ -34,7 +34,7 @@ public class GameLogic : MonoBehaviour
 
         balloon.AddComponent<SpriteRenderer>();
         balloon.GetComponent<SpriteRenderer>().sprite = circleTexture;
-        balloon.AddComponent<CircleClick>();
+        balloon.AddComponent<CircleClick>().id = id;
         balloon.AddComponent<CircleCollider2D>();
 
         Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, 0));
