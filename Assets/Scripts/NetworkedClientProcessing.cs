@@ -17,6 +17,7 @@ static public class NetworkedClientProcessing
         switch ((ServerToClientSignifiers)signifier)
         {
             case ServerToClientSignifiers.Refresh:
+                gameLogic.DestoryAllBalloon();
                 string[] balloons = csv[1].Split(new char[] { ';' }, System.StringSplitOptions.RemoveEmptyEntries);
                 foreach  (string balloon in balloons)
                 {
