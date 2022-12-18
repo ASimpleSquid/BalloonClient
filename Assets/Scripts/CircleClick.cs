@@ -16,6 +16,6 @@ public class CircleClick : MonoBehaviour
     }
     void OnMouseDown()
     {
-        NetworkedClientProcessing.SendMessageToServer($"{ClientToServerSignifiers.Pop},{id}");
+        NetworkedClientProcessing.SendMessageToServer($"{ClientToServerSignifiers.Pop:D},{id}");
     }
 }
