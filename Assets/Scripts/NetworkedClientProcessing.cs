@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,16 +14,22 @@ static public class NetworkedClientProcessing
         string[] csv = msg.Split(',');
         int signifier = int.Parse(csv[0]);
 
-        // if (signifier == ServerToClientSignifiers.asd)
-        // {
+        switch ((ServerToClientSignifiers)signifier)
+        {
+            case ServerToClientSignifiers.Refresh:
+                string[] balloons = csv[1].Split(new char[] { ';' }, System.StringSplitOptions.RemoveEmptyEntries);
+                foreach  (string balloon in balloons)
+                {
+                    string[] bparts = balloon.Split('_');
+                    Vector2 pos = new Vector2(Single.Parse(bparts[0]), Single.Parse(bparts[1]));
+                    int id = Int32.Parse(bparts[2]);
+                    gameLogic.SpawnNewBalloon(pos,id);
+                }
+                break;
 
-        // }
-        // else if (signifier == ServerToClientSignifiers.asd)
-        // {
-
-        // }
-
-        //gameLogic.DoSomething();
+            default:
+                break;
+        }
 
     }
 
