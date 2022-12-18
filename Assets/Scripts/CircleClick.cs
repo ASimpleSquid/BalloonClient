@@ -16,6 +16,6 @@ public class CircleClick : MonoBehaviour
     }
     void OnMouseDown()
     {
-        Destroy(gameObject);
+        NetworkedClientProcessing.SendMessageToServer($"{ClientToServerSignifiers.Pop},{id}");
     }
 }

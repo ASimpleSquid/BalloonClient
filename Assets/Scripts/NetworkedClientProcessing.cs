@@ -77,17 +77,14 @@ static public class NetworkedClientProcessing
     #endregion
 
 }
-
 #region Protocol Signifiers
-static public class ClientToServerSignifiers
+public enum ClientToServerSignifiers
 {
-    public const int asd = 1;
+    Pop
 }
 
-static public class ServerToClientSignifiers
+public enum ServerToClientSignifiers
 {
-    public const int asd = 1;
+    Refresh
 }
-
 #endregion
-
