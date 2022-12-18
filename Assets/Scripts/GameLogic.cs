@@ -18,7 +18,7 @@ public class GameLogic : MonoBehaviour
     {
         if(circleTexture == null)
             circleTexture = Resources.Load<Sprite>("Circle");
-
+        Debug.Log($"{id}:{screenPosition}");
         GameObject balloon = new GameObject("Balloon");
         balloons.Add(balloon);
 

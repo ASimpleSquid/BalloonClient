@@ -24,7 +24,8 @@ static public class NetworkedClientProcessing
                     string[] bparts = balloon.Split('_');
                     Vector2 pos = new Vector2(Single.Parse(bparts[0]), Single.Parse(bparts[1]));
                     int id = Int32.Parse(bparts[2]);
-                    gameLogic.SpawnNewBalloon(pos,id);
+                    Vector2 screenPosition = new Vector2(pos.x * (float)Screen.width, pos.y * (float)Screen.height);
+                    gameLogic.SpawnNewBalloon(screenPosition,id);
                 }
                 break;
 
