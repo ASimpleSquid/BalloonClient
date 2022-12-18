@@ -33,5 +33,15 @@ public class GameLogic : MonoBehaviour
         //go.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, -Camera.main.transform.position.z));
     }
 
+    public void DestoryAllBalloon()
+    {
+        foreach  (GameObject balloon in balloons)
+        {
+            Destroy(balloon);
+        }
+
+        balloons = new List<GameObject>();
+    }
+
 }
 
